@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.composition-viewer {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+  background-color: white;
+  @include box-shadow;
+  overflow: hidden;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include responsive(mobile) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    height: 300px;
+  }
+}

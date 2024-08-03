@@ -1,0 +1,113 @@
+@import 'variables';
+@import 'mixins';
+
+.timeline {
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-color: white;
+  padding: 20px;
+  @include box-shadow;
+  overflow-x: auto;
+
+  canvas {
+    width: 100%;
+    height: 100px;
+    background-color: $background-color;
+  }
+
+  .timeline-events {
+    position: relative;
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgba($secondary-color, 0.1);
+
+    .timeline-event {
+      position: absolute;
+      height: 100%;
+      background-color: rgba($primary-color, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: move;
+      overflow: hidden;
+
+      img, video {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+      }
+
+      .audio-preview {
+        font-size: 24px;
+      }
+
+      .resize-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: rgba(black, 0.3);
+        cursor: ew-resize;
+
+        &.left {
+          left: 0;
+        }
+
+        &.right {
+          right: 0;
+        }
+      }
+
+      .remove-event {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: rgba(black, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(black, 0.8);
+        }
+      }
+    }
+
+    .playhead {
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background-color: $primary-color;
+      pointer-events: none;
+    }
+
+    .timeline-resize-handle {
+      position: absolute;
+      top: 0;
+      right: -5px;
+      width: 10px;
+      height: 100%;
+      cursor: ew-resize;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .timeline-info {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: $secondary-color;
+  }
+
+  @include responsive(mobile) {
+    grid-row: 3 / 4;
+  }
+}

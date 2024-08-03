@@ -1,0 +1,63 @@
+@import 'variables';
+@import 'mixins';
+
+.variable-tools {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: white;
+  padding: 20px;
+  @include box-shadow;
+  overflow-y: auto;
+
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+
+    button {
+      flex: 1;
+      padding: 10px;
+      background-color: $background-color;
+      border: none;
+      cursor: pointer;
+      @include transition;
+
+      &.active {
+        background-color: $primary-color;
+        color: white;
+      }
+
+      &:hover:not(.active) {
+        background-color: darken($background-color, 10%);
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    color: $primary-color;
+  }
+
+  .tool {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="range"],
+    input[type="number"],
+    input[type="color"] {
+      width: 100%;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  }
+
+  @include responsive(mobile) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+}

@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.workspace {
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include responsive(mobile) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
