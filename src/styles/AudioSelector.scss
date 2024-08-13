@@ -9,6 +9,11 @@
   border-radius: 8px;
   @include box-shadow;
 
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+
   h2 {
     margin-bottom: 20px;
     color: $primary-color;
