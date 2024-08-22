@@ -1,0 +1,95 @@
+.ae-keyframe-editor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $bg-color-medium;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: $spacing-medium;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-medium;
+      font-size: $font-size-large;
+      color: $text-color-light;
+    }
+  
+    &__property {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-medium;
+  
+      span {
+        font-size: $font-size-small;
+        color: $text-color-light;
+      }
+    }
+  
+    &__values {
+      display: flex;
+      gap: $spacing-small;
+      margin-bottom: $spacing-medium;
+  
+      input {
+        width: 100%;
+        padding: $spacing-small;
+        background-color: $bg-color-dark;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        color: $text-color-light;
+        font-size: $font-size-small;
+  
+        &:focus {
+          outline: none;
+          border-color: $accent-color;
+        }
+      }
+    }
+  
+    &__easing {
+      display: flex;
+      align-items: center;
+      margin-bottom: $spacing-medium;
+  
+      label {
+        margin-right: $spacing-small;
+        font-size: $font-size-small;
+        color: $text-color-light;
+      }
+  
+      select {
+        flex-grow: 1;
+        padding: $spacing-small;
+        background-color: $bg-color-dark;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        color: $text-color-light;
+        font-size: $font-size-small;
+  
+        &:focus {
+          outline: none;
+          border-color: $accent-color;
+        }
+      }
+    }
+  
+    button {
+      width: 100%;
+      padding: $spacing-small;
+      background-color: $accent-color;
+      border: none;
+      border-radius: 3px;
+      color: $text-color-light;
+      font-size: $font-size-small;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+    }
+  }

@@ -1,0 +1,54 @@
+.ae-export-panel {
+    padding: $spacing-medium;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-medium;
+    }
+  
+    &__info {
+      margin-bottom: $spacing-medium;
+  
+      p {
+        margin: 0 0 $spacing-small;
+      }
+    }
+  
+    button {
+      margin-bottom: $spacing-medium;
+      padding: $spacing-small $spacing-medium;
+      background-color: $accent-color;
+      border: none;
+      border-radius: 3px;
+      color: $text-color-light;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+  
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  
+    &__progress {
+      margin-bottom: $spacing-medium;
+  
+      progress {
+        width: 100%;
+        margin-bottom: $spacing-small;
+      }
+  
+      span {
+        display: block;
+        text-align: center;
+      }
+    }
+  
+    &__status {
+      font-weight: bold;
+    }
+  }
+  

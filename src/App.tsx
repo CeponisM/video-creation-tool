@@ -1,16 +1,25 @@
 import React from 'react';
-import Header from './components/Header';
-import Canvas from './components/Canvas';
-import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import Layout from './components/layout/Layout';
+import { useShortcuts } from './utils/ShortcutManager';
+import './styles/App.scss';
+
+const AppContent: React.FC = () => {
+  useShortcuts([
+    // Add any global shortcuts here
+    { key: 'z', ctrlKey: true, action: () => console.log('Undo') },
+    { key: 'z', ctrlKey: true, shiftKey: true, action: () => console.log('Redo') },
+  ]);
+
+  return <Layout />;
+};
 
 const App: React.FC = () => {
-  useKeyboardShortcuts();
-
   return (
-    <div className="app">
-      <Header />
-      <Canvas />
-    </div>
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
   );
 };
 

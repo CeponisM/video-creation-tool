@@ -1,0 +1,47 @@
+.ae-workspace {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  
+    &__main {
+      display: flex;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+  
+    &__panels {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      border-left: 1px solid $border-color;
+    }
+  
+    &__panel-tabs {
+      display: flex;
+      background-color: $bg-color-dark;
+      border-bottom: 1px solid $border-color;
+  
+      button {
+        flex: 1;
+        padding: $spacing-small;
+        background: none;
+        border: none;
+        color: $text-color-light;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+  
+        &.active {
+          background-color: $bg-color-medium;
+        }
+  
+        &:hover:not(.active) {
+          background-color: lighten($bg-color-dark, 5%);
+        }
+      }
+    }
+  
+    &__panel-content {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+  }

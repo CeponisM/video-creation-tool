@@ -1,0 +1,51 @@
+.ae-property-editor {
+    width: 300px;
+    padding: $spacing-medium;
+    background-color: $bg-color-medium;
+    border-right: 1px solid $border-color;
+    overflow-y: auto;
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: $spacing-medium;
+        color: $text-color-light;
+    }
+
+    &__property {
+        margin-bottom: $spacing-medium;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: $spacing-small;
+        color: $text-color-light;
+    }
+
+    &__inputs {
+        display: flex;
+        gap: $spacing-small;
+
+        input {
+            width: 60px;
+            padding: 4px;
+            background-color: $bg-color-dark;
+            border: 1px solid $border-color;
+            border-radius: 3px;
+            color: $text-color-light;
+        }
+    }
+
+    button {
+        margin-left: $spacing-small;
+        padding: 4px 8px;
+        background-color: $accent-color;
+        border: none;
+        border-radius: 3px;
+        color: $text-color-light;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lighten($accent-color, 10%);
+        }
+    }
+}

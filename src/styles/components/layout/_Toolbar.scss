@@ -1,0 +1,22 @@
+.ae-toolbar {
+    display: flex;
+    align-items: center;
+    padding: $spacing-small;
+    background-color: $bg-color-dark;
+    border-bottom: 1px solid $border-color;
+  
+    button {
+      margin-right: $spacing-small;
+      padding: $spacing-small $spacing-medium;
+      background-color: $accent-color;
+      border: none;
+      border-radius: 3px;
+      color: $text-color-light;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+    }
+  }

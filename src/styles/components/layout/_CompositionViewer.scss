@@ -1,0 +1,13 @@
+.composition-viewer {
+    flex-grow: 1;
+    background-color: $bg-color-dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  
+    canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }

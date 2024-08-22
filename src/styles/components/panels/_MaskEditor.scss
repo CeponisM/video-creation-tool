@@ -1,0 +1,40 @@
+.ae-mask-editor {
+    padding: $spacing-medium;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-medium;
+    }
+  
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      margin-bottom: $spacing-small;
+      padding: $spacing-small;
+      background-color: $bg-color-dark;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+      color: $text-color-light;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: $spacing-small;
+      color: $text-color-light;
+    }
+  
+    button {
+      margin-right: $spacing-small;
+      margin-bottom: $spacing-small;
+      padding: $spacing-small $spacing-medium;
+      background-color: $accent-color;
+      border: none;
+      border-radius: 3px;
+      color: $text-color-light;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: lighten($accent-color, 10%);
+      }
+    }
+  }
+  

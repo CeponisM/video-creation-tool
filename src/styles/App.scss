@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color-dark;
+  color: $text-color-light;
+}
+
+.ae-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ae-main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.ae-workspace {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+@import 'components/layout/Header';
+@import 'components/layout/Sidebar';
+@import 'components/layout/Workspace';
+@import 'components/layout/Timeline';
+@import 'components/viewer/CompositionViewer';
+@import 'components/panels/EffectsPanel';
+@import 'components/panels/LayerProperties';
+@import 'components/common/Button';
+@import 'components/common/Slider';
+@import 'components/common/Dropdown';

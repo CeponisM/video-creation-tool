@@ -1,0 +1,67 @@
+.ae-layer-properties {
+    // ... (previous styles)
+
+    &__keyframe-editor {
+        margin-top: $spacing-medium;
+        padding: $spacing-medium;
+        background-color: $bg-color-light;
+        border-radius: 4px;
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: $spacing-small;
+        }
+    }
+
+    &__keyframe {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-small;
+
+        input {
+            width: 60px;
+            margin-right: $spacing-small;
+            padding: 4px;
+            background-color: $bg-color-medium;
+            border: 1px solid $border-color;
+            border-radius: 3px;
+            color: $text-color-light;
+            font-size: $font-size-small;
+
+            &:focus {
+                outline: none;
+                border-color: $accent-color;
+            }
+        }
+
+        button {
+            padding: 4px 8px;
+            background-color: $bg-color-medium;
+            border: 1px solid $border-color;
+            border-radius: 3px;
+            color: $text-color-light;
+            font-size: $font-size-small;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: $accent-color;
+            }
+        }
+    }
+
+    button {
+        padding: 6px 12px;
+        background-color: $accent-color;
+        border: none;
+        border-radius: 3px;
+        color: $text-color-light;
+        font-size: $font-size-small;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: lighten($accent-color, 10%);
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.ae-header {
+    background-color: $bg-color-medium;
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-medium;
+    border-bottom: 1px solid $border-color;
+  
+    &__logo {
+      font-weight: bold;
+      font-size: $font-size-large;
+      margin-right: $spacing-large;
+    }
+  
+    &__menu {
+      display: flex;
+      gap: $spacing-medium;
+    }
+  }
