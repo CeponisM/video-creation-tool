@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useAppSelector, useAppDispatch } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { updateLayer, addKeyframe, removeKeyframe, updateKeyframe, Transform, Keyframe } from '../../store/slices/timelineSlice';
-import '../../styles/components/panels/LayerProperties.scss';
+import '../../styles/components/panels/_LayerProperties.scss';
 
 const LayerProperties: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -18,10 +19,11 @@ const LayerProperties: React.FC = () => {
   }
 
   const handleAddKeyframe = (property: keyof Transform) => {
-    const currentValue = selectedLayer.transform[property].length > 0
-      ? selectedLayer.transform[property][selectedLayer.transform[property].length - 1].value
+    const keyframes = selectedLayer.transform[property] as Keyframe[];
+    const currentValue = keyframes.length > 0
+      ? keyframes[keyframes.length - 1].value
       : property === 'opacity' ? [100] : [0, 0, 0];
-
+  
     dispatch(addKeyframe({
       layerId: selectedLayer.id,
       property,
@@ -51,12 +53,12 @@ const LayerProperties: React.FC = () => {
   };
 
   const renderKeyframeEditor = (property: keyof Transform) => {
-    const keyframes = selectedLayer.transform[property];
-
+    const keyframes = selectedLayer.transform[property] as Keyframe[];
+  
     return (
       <div className="ae-layer-properties__keyframe-editor">
         <h4>{property}</h4>
-        {keyframes.map((keyframe, index) => (
+        {keyframes.map((keyframe: Keyframe, index: number) => (
           <div key={index} className="ae-layer-properties__keyframe">
             <input
               type="number"

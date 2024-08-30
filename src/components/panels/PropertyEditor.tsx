@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useAppSelector, useAppDispatch } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { updateLayerTransform, setLayerAs3D, setLayerBlendingMode, setLayerParent, setLayerMotionBlur, Layer, Transform } from '../../store/slices/timelineSlice';
 import ExpressionEditor from './ExpressionEditor';
-import '../../styles/components/panels/PropertyEditor.scss';
+import '../../styles/components/panels/_PropertyEditor.scss';
 
 const PropertyEditor: React.FC = () => {
   const dispatch = useAppDispatch();

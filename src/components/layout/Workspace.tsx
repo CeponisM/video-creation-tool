@@ -6,7 +6,7 @@ import MaskEditor from '../panels/MaskEditor';
 import ExportPanel from '../panels/ExportPanel';
 import Timeline from './Timeline';
 import Toolbar from './Toolbar';
-import '../../styles/components/layout/Workspace.scss';
+import '../../styles/components/layout/_Workspace.scss';
 
 const Workspace: React.FC = () => {
   const [activePanel, setActivePanel] = useState<'properties' | 'effects' | 'masks' | 'export'>('properties');

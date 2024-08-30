@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { createPrecomposition, Composition } from '../../store/slices/timelineSlice';
-import '../../styles/components/panels/PrecompositionCreator.scss';
+import '../../styles/components/panels/_PrecompositionCreator.scss';
 
 interface PrecompositionCreatorProps {
   onClose: () => void;

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { updateExpression, Expression, Transform } from '../../store/slices/timelineSlice';
-import '../../styles/components/panels/ExpressionEditor.scss';
+import '../../styles/components/panels/_ExpressionEditor.scss';
 
 interface ExpressionEditorProps {
   compositionId: string;

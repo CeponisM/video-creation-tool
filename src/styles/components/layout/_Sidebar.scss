@@ -1,19 +1,127 @@
-.ae-header {
-    background-color: $bg-color-medium;
-    height: $header-height;
+@import '../../variables';
+
+.ae-sidebar {
+  width: $sidebar-width;
+  height: 100%;
+  background-color: $bg-color-dark;
+  border-right: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+
+  &__tabs {
     display: flex;
-    align-items: center;
-    padding: 0 $spacing-medium;
     border-bottom: 1px solid $border-color;
-  
-    &__logo {
-      font-weight: bold;
-      font-size: $font-size-large;
-      margin-right: $spacing-large;
+  }
+
+  &__tab {
+    flex: 1;
+    padding: $spacing-small;
+    background-color: transparent;
+    border: none;
+    color: $text-color-light;
+    font-size: $font-size-medium;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $bg-color-medium;
     }
-  
-    &__menu {
-      display: flex;
-      gap: $spacing-medium;
+
+    &.active {
+      background-color: $bg-color-medium;
+      font-weight: bold;
     }
   }
+
+  &__content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: $spacing-medium;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: $spacing-medium;
+      font-size: $font-size-large;
+      color: $text-color-light;
+    }
+  }
+
+  &__add-asset {
+    width: 100%;
+    padding: $spacing-small;
+    margin-bottom: $spacing-medium;
+    background-color: $accent-color;
+    border: none;
+    border-radius: $border-radius-small;
+    color: $text-color-light;
+    font-size: $font-size-medium;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $accent-color-hover;
+    }
+  }
+
+  &__asset-list,
+  &__effect-list,
+  &__preset-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: $spacing-small;
+  }
+
+  &__asset-item,
+  &__effect-item,
+  &__preset-item {
+    background-color: $bg-color-medium;
+    border-radius: $border-radius-small;
+    padding: $spacing-small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    img, video {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: $border-radius-small;
+      margin-bottom: $spacing-xsmall;
+    }
+
+    .ae-sidebar__audio-icon {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-xlarge;
+      background-color: $bg-color-light;
+      border-radius: $border-radius-small;
+      margin-bottom: $spacing-xsmall;
+    }
+
+    span {
+      font-size: $font-size-small;
+      margin-bottom: $spacing-xsmall;
+      word-break: break-word;
+    }
+
+    button {
+      width: 100%;
+      padding: $spacing-xsmall;
+      background-color: $accent-color;
+      border: none;
+      border-radius: $border-radius-small;
+      color: $text-color-light;
+      font-size: $font-size-small;
+      cursor: pointer;
+      transition: background-color $transition-fast;
+
+      &:hover {
+        background-color: $accent-color-hover;
+      }
+    }
+  }
+}

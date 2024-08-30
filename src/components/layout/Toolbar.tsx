@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addLayer } from '../../store/slices/timelineSlice';
-import '../../styles/components/layout/Toolbar.scss';
+import '../../styles/components/layout/_Toolbar.scss';
 
 const Toolbar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -25,8 +25,11 @@ const Toolbar: React.FC = () => {
         },
         effects: [],
         masks: [],
+        parentId: null,
         is3D: false,
         blendingMode: 'normal',
+        motionBlur: false,
+        motionBlurSamples: 16,
       },
     }));
   };

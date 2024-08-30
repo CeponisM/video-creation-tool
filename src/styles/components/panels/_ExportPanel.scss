@@ -1,54 +1,63 @@
+@import '../../variables';
+
 .ae-export-panel {
-    padding: $spacing-medium;
-  
-    h3 {
-      margin-top: 0;
-      margin-bottom: $spacing-medium;
-    }
-  
-    &__info {
-      margin-bottom: $spacing-medium;
-  
-      p {
-        margin: 0 0 $spacing-small;
-      }
-    }
-  
-    button {
-      margin-bottom: $spacing-medium;
-      padding: $spacing-small $spacing-medium;
-      background-color: $accent-color;
-      border: none;
-      border-radius: 3px;
-      color: $text-color-light;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: lighten($accent-color, 10%);
-      }
-  
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-    }
-  
-    &__progress {
-      margin-bottom: $spacing-medium;
-  
-      progress {
-        width: 100%;
-        margin-bottom: $spacing-small;
-      }
-  
-      span {
-        display: block;
-        text-align: center;
-      }
-    }
-  
-    &__status {
-      font-weight: bold;
+  padding: $spacing-medium;
+  background-color: $bg-color-medium;
+  color: $text-color-light;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-medium;
+  }
+
+  &__info {
+    margin-bottom: $spacing-medium;
+
+    p {
+      margin: 0 0 $spacing-small;
     }
   }
-  
+
+  &__settings {
+    margin-bottom: $spacing-medium;
+
+    > * {
+      margin-bottom: $spacing-small;
+    }
+  }
+
+  &__time-range {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 48%;
+
+      input {
+        margin-top: $spacing-small * 0.5;
+        padding: $spacing-small;
+        background-color: $bg-color-dark;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        color: $text-color-light;
+      }
+    }
+  }
+
+  &__progress {
+    margin-top: $spacing-medium;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: $spacing-small;
+    }
+  }
+
+  &__status {
+    margin-top: $spacing-medium;
+    font-weight: bold;
+  }
+}

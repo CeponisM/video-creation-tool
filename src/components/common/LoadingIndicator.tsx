@@ -1,17 +1,14 @@
 import React from 'react';
-import '../../styles/components/common/LoadingIndicator.scss';
+import '../../styles/components/common/_LoadingIndicator.scss';
 
 interface LoadingIndicatorProps {
-  message?: string;
+  progress: number;
 }
 
-const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ message = 'Loading...' }) => {
+export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ progress }) => {
   return (
-    <div className="loading-indicator">
-      <div className="loading-indicator__spinner"></div>
-      <p className="loading-indicator__message">{message}</p>
+    <div className="ae-loading-indicator">
+      <div className="ae-loading-indicator__bar" style={{ width: `${progress}%` }}></div>
     </div>
   );
 };
-
-export default LoadingIndicator;

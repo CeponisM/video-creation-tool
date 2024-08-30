@@ -15,9 +15,15 @@ export const useShortcuts = (initialShortcuts: ShortcutAction[]) => {
   const [shortcuts, setShortcuts] = useState<ShortcutAction[]>(initialShortcuts);
 
   const defaultShortcuts: ShortcutAction[] = [
-    { key: ' ', action: () => dispatch(setCurrentTime(0)) }, // Spacebar to reset playhead
-    { key: 'ArrowLeft', action: () => dispatch(setCurrentTime(prevTime => Math.max(0, prevTime - 1 / 30))) }, // Left arrow to move playhead back
-    { key: 'ArrowRight', action: () => dispatch(setCurrentTime(prevTime => prevTime + 1 / 30)) }, // Right arrow to move playhead forward
+    { key: ' ', action: () => dispatch(setCurrentTime(0)) },
+    { 
+      key: 'ArrowLeft', 
+      action: () => dispatch(setCurrentTime({ type: 'decrement', amount: 1 / 30 }))
+    },
+    { 
+      key: 'ArrowRight', 
+      action: () => dispatch(setCurrentTime({ type: 'increment', amount: 1 / 30 }))
+    },
   ];
 
   useEffect(() => {

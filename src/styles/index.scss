@@ -1,0 +1,29 @@
+@import './variables';
+@import './mixins';
+@import './App';
+
+// Import component styles
+@import './components/layout/Header';
+@import './components/layout/Sidebar';
+@import './components/layout/Timeline';
+@import './components/layout/Toolbar';
+@import './components/layout/Workspace';
+@import './components/panels/EffectsPanel';
+@import './components/panels/ExportPanel';
+@import './components/panels/ExpressionEditor';
+@import './components/panels/MaskEditor';
+@import './components/panels/PropertyEditor';
+@import './components/viewer/CompositionViewer';
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color-dark;
+  color: $text-color-light;
+}
+
+code {
+  font-family: $font-family-mono;
+}

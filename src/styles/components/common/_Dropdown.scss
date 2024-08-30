@@ -1,0 +1,17 @@
+@import '../../variables';
+
+.ae-dropdown {
+  width: 100%;
+  padding: $spacing-small;
+  background-color: $bg-color-dark;
+  color: $text-color-light;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-color;
+  }
+}

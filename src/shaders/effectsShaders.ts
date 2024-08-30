@@ -119,7 +119,7 @@ const glowShader = {
   `,
 };
 
-export const getEffectShader = (effectType: string): THREE.Shader | null => {
+export const getEffectShader = (effectType: string): THREE.ShaderMaterialParameters | null => {
   switch (effectType) {
     case 'blur':
       return blurShader;
@@ -127,6 +127,8 @@ export const getEffectShader = (effectType: string): THREE.Shader | null => {
       return colorCorrectionShader;
     case 'glow':
       return glowShader;
+    case 'chromaticAberration':
+      return chromaticAberrationShader;
     default:
       return null;
   }

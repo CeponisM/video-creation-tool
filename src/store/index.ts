@@ -4,6 +4,9 @@ import timelineReducer from './slices/timelineSlice';
 import compositionReducer from './slices/compositionSlice';
 import uiReducer from './slices/uiSlice';
 import mediaReducer from './slices/mediaSlice';
+import projectReducer from './slices/projectSlice';
+import effectsReducer from './slices/effectsSlice';
+import presetsReducer from './slices/presetsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +15,9 @@ export const store = configureStore({
     composition: compositionReducer,
     ui: uiReducer,
     media: mediaReducer,
+    project: projectReducer,
+    effects: effectsReducer,
+    presets: presetsReducer,
   },
 });
 

@@ -7,9 +7,9 @@ import './styles/App.scss';
 
 const AppContent: React.FC = () => {
   useShortcuts([
-    // Add any global shortcuts here
     { key: 'z', ctrlKey: true, action: () => console.log('Undo') },
     { key: 'z', ctrlKey: true, shiftKey: true, action: () => console.log('Redo') },
+    { key: ' ', action: () => console.log('Play/Pause') },
   ]);
 
   return <Layout />;

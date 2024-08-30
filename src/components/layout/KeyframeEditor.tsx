@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { Transform, Keyframe } from '../../store/slices/timelineSlice';
-import '../../styles/components/layout/KeyframeEditor.scss';
+import { Transform, Keyframe } from '../../store/slices/types';
+import '../../styles/components/layout/_KeyframeEditor.scss';
 
 interface KeyframeEditorProps {
   layerId: string;
@@ -17,7 +17,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({ layerId, property, time
 
   useEffect(() => {
     if (layer) {
-      const foundKeyframe = layer.transform[property].find(k => k.time === time);
+      const foundKeyframe = (layer.transform[property] as Keyframe[]).find((k: Keyframe) => k.time === time);
       if (foundKeyframe) {
         setKeyframe(foundKeyframe);
       }
@@ -33,7 +33,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({ layerId, property, time
     onUpdate(layerId, property, time, { value: newValue });
   };
 
-  const handleEasingChange = (easing: 'linear' | 'easeInOutCubic') => {
+  const handleEasingChange = (easing: string) => {
     setKeyframe({ ...keyframe, easing });
     onUpdate(layerId, property, time, { easing });
   };
@@ -59,10 +59,12 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({ layerId, property, time
         <label>Easing:</label>
         <select
           value={keyframe.easing}
-          onChange={(e) => handleEasingChange(e.target.value as 'linear' | 'easeInOutCubic')}
+          onChange={(e) => handleEasingChange(e.target.value)}
         >
           <option value="linear">Linear</option>
-          <option value="easeInOutCubic">Ease In Out Cubic</option>
+          <option value="easeInQuad">Ease In Quad</option>
+          <option value="easeOutQuad">Ease Out Quad</option>
+          <option value="easeInOutQuad">Ease In Out Quad</option>
         </select>
       </div>
       <button onClick={onClose}>Close</button>

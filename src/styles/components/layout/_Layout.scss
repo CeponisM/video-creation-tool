@@ -1,0 +1,49 @@
+@import '../../variables';
+
+.ae-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $bg-color-darkest;
+  color: $text-color-light;
+
+  &__main {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &__top {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &__panels {
+    display: flex;
+    flex-direction: column;
+    width: $panel-width;
+    border-left: 1px solid $border-color;
+    overflow-y: auto;
+  }
+
+  .ae-composition-viewer {
+    flex-grow: 1;
+    min-width: 60%;
+    height: calc(100vh - #{$header-height} - #{$timeline-height});
+    background-color: $bg-color-dark;
+  }
+
+  .ae-timeline {
+    height: $timeline-height;
+    border-top: 1px solid $border-color;
+    background-color: $bg-color-medium;
+  }
+}

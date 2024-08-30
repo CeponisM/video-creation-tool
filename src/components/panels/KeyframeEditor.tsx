@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useAppDispatch } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { updateKeyframe, Layer, Transform, Keyframe } from '../../store/slices/timelineSlice';
-import '../../styles/components/panels/KeyframeEditor.scss';
+import '../../styles/components/panels/_KeyframeEditor.scss';
 
 interface KeyframeEditorProps {
   layer: Layer;
@@ -16,7 +16,7 @@ const KeyframeEditor: React.FC<KeyframeEditorProps> = ({ layer, property, time, 
   const [keyframe, setKeyframe] = useState<Keyframe | null>(null);
 
   useEffect(() => {
-    const foundKeyframe = (layer.transform[property] as Keyframe[]).find(k => k.time === time);
+    const foundKeyframe = (layer.transform[property] as Keyframe[]).find((k: Keyframe) => k.time === time);
     if (foundKeyframe) {
       setKeyframe(foundKeyframe);
     }

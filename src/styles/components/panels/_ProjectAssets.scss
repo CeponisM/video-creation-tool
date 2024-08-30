@@ -1,0 +1,87 @@
+@import '../../variables';
+
+.ae-project-assets {
+  padding: $spacing-medium;
+
+  &__title {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-medium;
+    color: $text-color-light;
+  }
+
+  &__add-button {
+    width: 100%;
+    padding: $spacing-small;
+    margin-bottom: $spacing-medium;
+    background-color: $accent-color;
+    border: none;
+    border-radius: $border-radius-small;
+    color: $text-color-light;
+    font-size: $font-size-medium;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $accent-color-hover;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: $spacing-medium;
+  }
+
+  &__item {
+    background-color: $bg-color-medium;
+    border-radius: $border-radius-small;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    img, video {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .ae-project-assets__audio-icon {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-xlarge;
+      background-color: $bg-color-light;
+    }
+  }
+
+  &__item-name {
+    padding: $spacing-small;
+    font-size: $font-size-small;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__add-to-timeline {
+    margin-top: auto;
+    padding: $spacing-small;
+    background-color: $accent-color;
+    border: none;
+    color: $text-color-light;
+    font-size: $font-size-small;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $accent-color-hover;
+    }
+  }
+}

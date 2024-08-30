@@ -1,139 +1,162 @@
+@import '../../variables';
+
 .ae-timeline {
-    height: $timeline-height;
-    background-color: $bg-color-medium;
-    border-top: 1px solid $border-color;
-    display: flex;
-    flex-direction: column;
+  height: $timeline-height;
+  background-color: $bg-color-medium;
+  border-top: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &__ruler {
+    height: 25px;
+    position: sticky;
+    top: 0;
+    background-color: $bg-color-dark;
+    border-bottom: 1px solid $border-color;
+    z-index: 1;
+  }
+
+  &__ruler-tick {
+    position: absolute;
+    height: 100%;
+    border-left: 1px solid $border-color;
+  }
+
+  &__ruler-label {
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    font-size: 10px;
+    color: $text-color-light;
+  }
+
+  &__layers {
+    flex-grow: 1;
+    overflow-y: auto;
     position: relative;
-    overflow: hidden;
+  }
 
-    &__controls {
-        display: flex;
-        align-items: center;
-        padding: $spacing-small;
-        background-color: $bg-color-dark;
-        border-bottom: 1px solid $border-color;
+  &__layer {
+    height: 30px;
+    position: absolute;
+    background-color: $bg-color-light;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
 
-        input[type="range"] {
-            width: 150px;
-            margin-right: $spacing-medium;
-        }
-
-        span {
-            margin-right: $spacing-medium;
-            font-size: $font-size-small;
-            color: $text-color-light;
-        }
+    &--selected {
+      box-shadow: 0 0 0 2px $highlight-color;
     }
 
-    &__content {
-        flex-grow: 1;
-        position: relative;
-        overflow-x: auto;
-        overflow-y: hidden;
+    &--solo {
+      background-color: rgba($accent-color, 0.2);
     }
 
-    &__ruler {
-        height: 25px;
-        position: sticky;
-        top: 0;
-        background-color: $bg-color-medium;
-        border-bottom: 1px solid $border-color;
-        z-index: 1;
+    &--locked {
+      opacity: 0.5;
+      pointer-events: none;
     }
 
-    &__layers {
-        flex-grow: 1;
-        overflow-y: auto;
-        position: relative;
-        @include scrollbar;
+    &--shy {
+      opacity: 0.3;
     }
+  }
 
-    &__layer {
-        height: auto;
-        min-height: 30px;
-        position: absolute;
-        background-color: $bg-color-light;
-        border: 1px solid $border-color;
-        border-radius: 3px;
-        cursor: move;
-        display: flex;
-        flex-direction: column;
-        padding: $spacing-small;
+  &__layer-controls {
+    display: flex;
+    margin-right: 10px;
 
-        &--selected {
-            box-shadow: 0 0 0 2px $highlight-color;
-        }
+    button, select {
+      margin-right: 5px;
+      padding: 2px 5px;
+      font-size: 10px;
     }
+  }
 
-    &__layer-name {
-        font-size: $font-size-small;
-        color: $text-color-light;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: $spacing-small;
+  &__layer-name {
+    flex-grow: 1;
+    font-size: 12px;
+    color: $text-color-light;
+  }
+
+  &__layer-properties {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  &__layer-property {
+    margin-right: 10px;
+    font-size: 10px;
+    color: $text-color-light;
+  }
+
+  &__layer-keyframes {
+    position: relative;
+    height: 10px;
+  }
+
+  &__keyframe {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: $accent-color;
+    border-radius: 50%;
+    top: 2px;
+    transform: translateX(-50%);
+  }
+
+  &__playhead {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $highlight-color;
+    pointer-events: none;
+  }
+
+  &__in-point,
+  &__out-point {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: $accent-color;
+    pointer-events: none;
+  }
+
+  &__work-area {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgba($accent-color, 0.2);
+    pointer-events: none;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: $bg-color-dark;
+    border-top: 1px solid $border-color;
+
+    button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
     }
+  }
 
-    &__layer-properties,
-    &__layer-effect {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: $spacing-small;
-    }
-
-    &__layer-property {
-        display: flex;
-        align-items: center;
-        height: 20px;
-        margin-bottom: $spacing-small;
-
-        span {
-            width: 80px;
-            font-size: $font-size-small;
-            color: $text-color-light;
-        }
-    }
-
-    &__keyframe {
-        width: 8px;
-        height: 8px;
-        background-color: $accent-color;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-
-        &--linear {
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-
-        &--easeInQuad,
-        &--easeOutQuad,
-        &--easeInOutQuad,
-        &--easeInCubic,
-        &--easeOutCubic,
-        &--easeInOutCubic {
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-        }
-    }
-
-    &__layer-effect {
-        font-size: $font-size-small;
-        color: $text-color-light;
-        margin-top: $spacing-small;
-        padding: 2px 4px;
-        background-color: rgba($bg-color-dark, 0.5);
-        border-radius: 2px;
-    }
-
-    &__playhead {
-        position: absolute;
-        top: 0;
-        width: 1px;
-        height: 100%;
-        background-color: $highlight-color;
-        pointer-events: none;
-    }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: $bg-color-dark;
+    border-top: 1px solid $border-color;
+    font-size: 12px;
+    color: $text-color-light;
+  }
 }

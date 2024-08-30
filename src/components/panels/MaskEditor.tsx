@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addMask, updateMask, removeMask, Mask, Layer } from '../../store/slices/timelineSlice';
-import '../../styles/components/panels/MaskEditor.scss';
+import '../../styles/components/panels/_MaskEditor.scss';
 
 interface MaskEditorProps {
   compositionId: string;
@@ -29,7 +30,7 @@ const MaskEditor: React.FC<MaskEditorProps> = ({ compositionId, layerId, onClose
 
   useEffect(() => {
     if (selectedMaskId && layer) {
-      const selectedMask = layer.masks.find(m => m.id === selectedMaskId);
+      const selectedMask = layer.masks.find((m: Mask) => m.id === selectedMaskId);
       if (selectedMask) {
         setMaskName(selectedMask.name);
         setInverted(selectedMask.inverted);
@@ -74,14 +75,14 @@ const MaskEditor: React.FC<MaskEditorProps> = ({ compositionId, layerId, onClose
 
   if (!layer) return null;
 
-  return (
+return (
     <div className="ae-mask-editor">
       <h3>Mask Editor</h3>
       <select
         value={selectedMaskId || ''}
         onChange={(e) => setSelectedMaskId(e.target.value)}
       >
-        {layer.masks.map(mask => (
+        {layer?.masks.map((mask: Mask) => (
           <option key={mask.id} value={mask.id}>{mask.name}</option>
         ))}
       </select>
